@@ -1,6 +1,9 @@
 # PureNexus Extras
 
 on post-fs-data
+	# Run arise
+	start arise
+	
     # Run sysinit
     start sysinit
 
@@ -20,3 +23,11 @@ service sysinit /system/bin/sysinit
     user root
     oneshot
     disabled
+
+# arise sound mod
+service arise /system/su.d/arisesound_setprop
+	user root
+	group root system
+	seclabel u:r:arise:s0
+	oneshot
+	disabled
